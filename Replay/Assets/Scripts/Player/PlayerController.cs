@@ -22,9 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayers;
 
+    private Recorder recorder;
+    private bool recording = false;
 
-    private void Start()
+    private void Awake()
     {
+        recorder = GetComponent<Recorder>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
     }
+
+   
 
     private void Move()
     {
